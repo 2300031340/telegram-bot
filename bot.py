@@ -9,7 +9,7 @@ def delete_on_trigger(update, context):
     message_text = update.message.text.lower()
 
     if message_text == TRIGGER_WORD:
-        context.bot.send_message(chat_id, "Trigger word detected. Deleting recent messages...")
+        context.bot.send_message(chat_id, "?")
         for i in range(update.message.message_id - 1, update.message.message_id - 51, -1):
             try:
                 context.bot.delete_message(chat_id=chat_id, message_id=i)
