@@ -50,7 +50,10 @@ def handle_commands(update, context):
     # Command: dp
     elif message_text == "dp" and update.message.reply_to_message:
         try:
+            # Delete the replied message
             context.bot.delete_message(chat_id=chat_id, message_id=update.message.reply_to_message.message_id)
+            # Delete the command message itself
+            context.bot.delete_message(chat_id=chat_id, message_id=message_id)
         except:
             pass
 
@@ -69,6 +72,8 @@ def handle_commands(update, context):
                             break
                     except:
                         continue
+            # Delete the "dpp" command message itself
+            context.bot.delete_message(chat_id=chat_id, message_id=message_id)
         except:
             pass
 
